@@ -52,8 +52,6 @@ Dataset were split into a train (80%) and test (20%). The target variable “is_
 
 We use cross-validation method to train and test the random forest model. The random forest model has a satisfying accuracy of 89% and an F1 score of 84%. The details of model performance could be seen below [model performance](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/Model%20performance.png) . Moreover, we can find that 904 instances were wrongly classified as class 1, and 1804 instances were wrongly classified as class 0 from [confusion matrix](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/confusion%20matrix.png).
 
-![model performance](Model performance.png)
-![model performance](confusion matrix.png)
 
 
 ## XAI(eXplicability Artificial Intelligence)
