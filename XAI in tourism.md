@@ -1,6 +1,16 @@
 # XAI in hotel booking cancellation
 
-[TOC]
+## Outline
+
+* Abstract
+* Introduction 
+* Dataset description
+* Data process
+* Make model confess
+* Explicability
+  * LIME
+* Discussion
+* References
 
 <div STYLE="page-break-after: always;"></div>
 
