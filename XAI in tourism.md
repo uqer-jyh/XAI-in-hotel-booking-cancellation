@@ -38,7 +38,7 @@ This data article describes two datasets with hotel demand data. One of the hote
 
 ## Data process
 
-We only keep the data that entries without missing value that 118,902 entries left. There are 24 columns which having a significant correlation with the target variable “is_canceled” were kept. The data processing is from  [jthomasmock]([tidytuesday/data/2020/2020-02-11 at master · rfordatascience/tidytuesday (github.com)](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-02-11)) 's Github web page. 
+We only keep the data that entries without missing value that 118,902 entries left. There are 24 columns which having a significant correlation with the target variable “is_canceled” were kept. The data processing is from  [jthomasmock](https://github.com/rfordatascience/tidytuesday/tree/master/data/2020/2020-02-11) 's Github web page. 
 
 The categorical variables: “meal”, “market_segment”, “distribution_channel”, “reserved_room_type”, “assigned_room_type”, and “customer_type” were one-hot encoded for the ML model. 
 
@@ -50,7 +50,7 @@ Dataset were split into a train (80%) and test (20%). The target variable “is_
 
 ## Make model confess
 
-We use cross-validation method to train and test the random forest model. The random forest model has a satisfying accuracy of 89% and an F1 score of 84%. The details of model performance could be seen below [model performance]() . Moreover, we can find that 904 instances were wrongly classified as class 1, and 1804 instances were wrongly classified as class 0 from [confusion matrix]().
+We use cross-validation method to train and test the random forest model. The random forest model has a satisfying accuracy of 89% and an F1 score of 84%. The details of model performance could be seen below [model performance](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/Model%20performance.png) . Moreover, we can find that 904 instances were wrongly classified as class 1, and 1804 instances were wrongly classified as class 0 from [confusion matrix](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/confusion%20matrix.png).
 
 
 
@@ -60,9 +60,9 @@ LIME can then decode the categorical coded values and show human-readable labels
 
 Since we are dealing with tabular data, an explainer is built using “LimeTabularExplainer”. The minimal inputs are the original data formatted as a numerical matrix with the class names, the feature column names, the indexes of categorical features, and the names of categorical features. The parameter kernel_width defines the size of the local prediction. The bigger the kernel_width, the more data points the function will take to generalize. The explanation can be computed along with a visualization when calling the explain_instance method. The required inputs are data instances and the prediction function.
 
-The most important feature for the instance 1 is “deposit_given” set to 0. The country is only the fourth most important feature. And no “previous cancellations” was the second most important feature [Lime explanation1](Lime explanation1.png). No demand for car parking space contributed to the opposite prediction. Even though the contribution weight has changed.
+The most important feature for the instance 1 is “deposit_given” set to 0. The country is only the fourth most important feature. And no “previous cancellations” was the second most important feature [Lime explanation1](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/Lime%20explanation1.png). No demand for car parking space contributed to the opposite prediction. Even though the contribution weight has changed.
 
-For the selected instance from class 1 (canceled), “deposit given” is the most important feature according to the explanation [Lime explanation2](). Country is placed as the third most crucial feature followed by no required car parking space and “lead time”. Moreover, no “previous cancellations” would push the prediction into “non canceled”.
+For the selected instance from class 1 (canceled), “deposit given” is the most important feature according to the explanation [Lime explanation2](https://github.com/uqer-jyh/XAI-in-hotel-booking-cancellation/blob/main/Lime%20explanation2.png). Country is placed as the third most crucial feature followed by no required car parking space and “lead time”. Moreover, no “previous cancellations” would push the prediction into “non canceled”.
 
 
 
